@@ -22,7 +22,8 @@
 </template>
 
 <script>
-import { onMounted, computed, router } from 'vue';
+import { onMounted, computed } from 'vue';
+import { router } from '../router';
 import { AppState } from '../AppState';
 import { useRoute } from 'vue-router';
 import Pop from '../utils/Pop';
@@ -46,7 +47,7 @@ export default {
             async deleteHouse() {
                 try {
                     await housesService.deleteHouse(houseId)
-                    router.push({ name: 'HousesPage' })
+                    router.push({ name: 'Houses' })
                 } catch (error) {
                     Pop.error(error)
                 }
